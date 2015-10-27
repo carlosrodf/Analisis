@@ -46,7 +46,6 @@ public class principalTest {
         String[] args = null;
         principal.main(args);
         // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
     }
 
     /**
@@ -58,11 +57,9 @@ public class principalTest {
         String username = "";
         String password = "";
         principal instance = new principal();
-        boolean expResult = true;
+        boolean expResult = false;
         boolean result = instance.validarCampos(username, password);
         assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
     }
     
 }

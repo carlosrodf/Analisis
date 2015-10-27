@@ -85,10 +85,6 @@ public class principal extends javax.swing.JFrame {
             }
         });
     }
-    
-    public boolean validarCampos(String username, String password){
-        return !username.equals("") && !password.equals("");
-    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel jLabel1;

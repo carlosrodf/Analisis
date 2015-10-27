@@ -16,9 +16,9 @@ import static org.junit.Assert.*;
  *
  * @author carlosrodf
  */
-public class principalTest {
+public class AuxiliarTest {
     
-    public principalTest() {
+    public AuxiliarTest() {
     }
     
     @BeforeClass
@@ -38,25 +38,14 @@ public class principalTest {
     }
 
     /**
-     * Test of main method, of class principal.
-     */
-    @org.junit.Test
-    public void testMain() {
-        System.out.println("main");
-        String[] args = null;
-        principal.main(args);
-        // TODO review the generated test code and remove the default call to fail.
-    }
-
-    /**
-     * Test of validarCampos method, of class principal.
+     * Test of validarCampos method, of class Auxiliar.
      */
     @Test
     public void testValidarCampos() {
         System.out.println("validarCampos");
         String username = "";
         String password = "";
-        principal instance = new principal();
+        Auxiliar instance = new Auxiliar();
         boolean expResult = false;
         boolean result = instance.validarCampos(username, password);
         assertEquals(expResult, result);

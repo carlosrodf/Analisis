@@ -58,7 +58,7 @@ public class principalTest {
         String username = "";
         String password = "";
         principal instance = new principal();
-        boolean expResult = false;
+        boolean expResult = true;
         boolean result = instance.validarCampos(username, password);
         assertEquals(expResult, result);
         // TODO review the generated test code and remove the default call to fail.

@@ -6,6 +6,7 @@
 package com.grupo7.practica;
 
 import java.io.File;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -13,12 +14,14 @@ import java.io.File;
  */
 public class principal extends javax.swing.JFrame {
 
+    private Auxiliar aux;
+    
     /**
      * Creates new form principal
      */
     public principal() {
         initComponents();
-        //jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/grupo7/practica/logo.png")));
+        this.aux = new Auxiliar();
     }
 
     /**
@@ -46,6 +49,11 @@ public class principal extends javax.swing.JFrame {
         jLabel3.setText("contraseña:");
 
         loginButton.setText("Ingresar");
+        loginButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                loginButtonActionPerformed(evt);
+            }
+        });
 
         jLabel2.setIcon(new javax.swing.ImageIcon("/home/carlosrodf/NetBeansProjects/Practica/src/main/java/com/grupo7/practica/logo.png")); // NOI18N
         jLabel2.setMaximumSize(new java.awt.Dimension(460, 248));
@@ -100,6 +108,15 @@ public class principal extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void loginButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_loginButtonActionPerformed
+        // TODO add your handling code here:
+        if(aux.validarCampos(username.getText(), password.getText())){
+            JOptionPane.showMessageDialog(null,"No disponible","Login",JOptionPane.WARNING_MESSAGE);
+        }else{
+            JOptionPane.showMessageDialog(null,"Ingrese todos los campos","Login",JOptionPane.WARNING_MESSAGE);
+        }
+    }//GEN-LAST:event_loginButtonActionPerformed
 
     /**
      * @param args the command line arguments

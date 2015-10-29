@@ -21,6 +21,7 @@ public class principal extends javax.swing.JFrame {
      */
     public principal() {
         initComponents();
+        setLocationRelativeTo(null);
         this.aux = new Auxiliar();
     }
 
@@ -56,11 +57,13 @@ public class principal extends javax.swing.JFrame {
         });
 
         jLabel2.setIcon(new javax.swing.ImageIcon("/home/carlosrodf/NetBeansProjects/Practica/src/main/java/com/grupo7/practica/logo.png")); // NOI18N
-        jLabel2.setMaximumSize(new java.awt.Dimension(460, 248));
-        jLabel2.setMinimumSize(new java.awt.Dimension(460, 248));
-        jLabel2.setPreferredSize(new java.awt.Dimension(460, 248));
 
         jButton1.setText("Registrarse");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -68,7 +71,7 @@ public class principal extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGap(174, 174, 174)
-                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jLabel2)
                 .addContainerGap(167, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -90,7 +93,7 @@ public class principal extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jLabel2)
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(username, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -117,6 +120,12 @@ public class principal extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null,"Ingrese todos los campos","Login",JOptionPane.WARNING_MESSAGE);
         }
     }//GEN-LAST:event_loginButtonActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        // TODO add your handling code here:
+        Formulario f = new Formulario();
+        f.setVisible(true);
+    }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
      * @param args the command line arguments

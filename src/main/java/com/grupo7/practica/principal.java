@@ -5,7 +5,6 @@
  */
 package com.grupo7.practica;
 
-import java.io.File;
 import javax.swing.JOptionPane;
 
 /**
@@ -13,16 +12,15 @@ import javax.swing.JOptionPane;
  * @author carlosrodf
  */
 public class principal extends javax.swing.JFrame {
-
-    private Auxiliar aux;
     
+    public static database db;
     /**
      * Creates new form principal
      */
     public principal() {
         initComponents();
         setLocationRelativeTo(null);
-        this.aux = new Auxiliar();
+        this.db = new database();
     }
 
     /**
@@ -44,6 +42,14 @@ public class principal extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setResizable(false);
+        addWindowListener(new java.awt.event.WindowAdapter() {
+            public void windowClosing(java.awt.event.WindowEvent evt) {
+                formWindowClosing(evt);
+            }
+            public void windowClosed(java.awt.event.WindowEvent evt) {
+                formWindowClosed(evt);
+            }
+        });
 
         jLabel1.setText("usuario:");
 
@@ -114,7 +120,7 @@ public class principal extends javax.swing.JFrame {
 
     private void loginButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_loginButtonActionPerformed
         // TODO add your handling code here:
-        if(aux.validarCampos(username.getText(), password.getText())){
+        if(/*aux.validarCampos(username.getText(), password.getText())*/true){
             JOptionPane.showMessageDialog(null,"No disponible","Login",JOptionPane.WARNING_MESSAGE);
         }else{
             JOptionPane.showMessageDialog(null,"Ingrese todos los campos","Login",JOptionPane.WARNING_MESSAGE);
@@ -126,6 +132,16 @@ public class principal extends javax.swing.JFrame {
         Formulario f = new Formulario();
         f.setVisible(true);
     }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void formWindowClosed(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowClosed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_formWindowClosed
+
+    private void formWindowClosing(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowClosing
+        // TODO add your handling code here:
+        db.escribirArchivo();
+        System.out.println("Escrito...");
+    }//GEN-LAST:event_formWindowClosing
 
     /**
      * @param args the command line arguments

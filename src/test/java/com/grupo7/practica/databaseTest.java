@@ -5,6 +5,7 @@
  */
 package com.grupo7.practica;
 
+import java.util.ArrayList;
 import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Before;
@@ -62,7 +63,7 @@ public class databaseTest {
     @Test
     public void testAgregarUsuario_8args() {
         System.out.println("agregarUsuario");
-        String correo = "";
+        String correo = "#####";
         String nombre = "";
         String apellido = "";
         String pass = "";

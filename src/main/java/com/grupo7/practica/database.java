@@ -108,4 +108,15 @@ public class database {
             return true;
         }
     }
+    
+    public ArrayList<String> getAsociables(){
+        ArrayList<String> items = new ArrayList<>();
+        for (Usuario u : usuarios){
+            if(!u.isAsociado()){
+                items.add(u.getCorreo());
+            }
+        }
+        return items;
+    }
+   
 }

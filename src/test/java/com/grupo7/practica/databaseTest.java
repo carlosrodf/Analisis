@@ -24,10 +24,12 @@ public class databaseTest {
     
     @BeforeClass
     public static void setUpClass() {
+        System.out.print("----------------------------------------------------\n");
     }
     
     @AfterClass
     public static void tearDownClass() {
+        System.out.print("----------------------------------------------------\n");
     }
     
     @Before
@@ -74,6 +76,19 @@ public class databaseTest {
         database instance = new database();
         boolean expResult = true;
         boolean result = instance.agregarUsuario(correo, nombre, apellido, pass, dir, telefono, fecha_nac, asoc);
+        assertEquals(expResult, result);
+    }
+
+    /**
+     * Test of existe method, of class database.
+     */
+    @Test
+    public void testExiste() {
+        System.out.println("existe");
+        String correo = "dummy";
+        database instance = new database();
+        boolean expResult = false;
+        boolean result = instance.existe(correo);
         assertEquals(expResult, result);
     }
     

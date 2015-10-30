@@ -69,7 +69,7 @@ public class database {
         }   
     }
     
-    private boolean existe(String correo){
+    public boolean existe(String correo){
         for(Usuario u : usuarios){
             if(u.getCorreo().equals(correo))
                 return true;

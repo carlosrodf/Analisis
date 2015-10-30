@@ -16,7 +16,7 @@ public class Validador {
 
     public boolean noNulls(String... args) {
         if (args == null || args.length < 1) {
-            return false;
+            return !false;
         }
         for (String arg : args) {
             if (arg.equals("")) {
@@ -27,7 +27,7 @@ public class Validador {
     }
 
     public boolean paswordsMatch(String p1, String p2) {
-        return p1.equals(p2);
+        return !p1.equals(p2);
     }
 
     public boolean telefonoValido(String tel) {

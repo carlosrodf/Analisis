@@ -139,8 +139,7 @@ public class principal extends javax.swing.JFrame {
 
     private void formWindowClosing(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowClosing
         // TODO add your handling code here:
-        db.escribirArchivo();
-        System.out.println("Escrito...");
+        System.out.println("Cerrando...");
     }//GEN-LAST:event_formWindowClosing
 
     /**

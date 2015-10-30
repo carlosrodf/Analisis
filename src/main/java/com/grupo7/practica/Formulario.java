@@ -6,6 +6,7 @@
 package com.grupo7.practica;
 
 import java.util.ArrayList;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -19,11 +20,12 @@ public class Formulario extends javax.swing.JFrame {
     public Formulario() {
         initComponents();
         setLocationRelativeTo(null);
-        
+
         asociados_list.removeAllItems();
         ArrayList<String> tmp = principal.db.getAsociables();
-        for(String item : tmp)
+        for (String item : tmp) {
             asociados_list.addItem(item);
+        }
     }
 
     /**
@@ -265,26 +267,43 @@ public class Formulario extends javax.swing.JFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
-        //VALIDAR?
+
         String email = correo.getText();
         String name = nombre.getText();
         String last = apellido.getText();
         String pass = pass1.getText();
+        String p_aux = pass2.getText();
         String addr = direccion.getText();
         String phone = telefono.getText();
         String born = dia.getText() + "/" + mes.getText() + "/" + anio.getText();
-        
-        if(asociados_list.isEnabled()){
-            String asoc = asociados_list.getSelectedItem().toString();
-            System.out.println(asoc);
-            principal.db.agregarUsuario(email, name, last, pass, addr, phone, born,asoc);
-            System.out.println("isEnabled");
-        }else{
-            principal.db.agregarUsuario(email, name, last, pass, addr, phone, born);
-            System.out.println("notEnabled");
+
+        Validador v = new Validador();
+        if (!v.noNulls(email, name, last, pass, p_aux, addr, phone, born)) {
+            mensaje.setText("Debe ingresar todos los campos.");
+        } else {
+            if (!v.fechaValida(dia.getText(), mes.getText(), anio.getText())) {
+                mensaje.setText("Ingrese una fecha valida.");
+            } else {
+                if (!v.paswordsMatch(pass, p_aux)) {
+                    mensaje.setText("Las contraseñas no coinciden.");
+                } else {
+                    if (!v.telefonoValido(phone)) {
+                        mensaje.setText("Ingrese un numero de telefono valido.");
+                    } else {
+                        if (asociados_list.isEnabled()) {
+                            String asoc = asociados_list.getSelectedItem().toString();
+                            principal.db.agregarUsuario(email, name, last, pass, addr, phone, born, asoc);
+                        } else {
+                            principal.db.agregarUsuario(email, name, last, pass, addr, phone, born);
+                        }
+                        principal.db.escribirArchivo();
+                        JOptionPane.showMessageDialog(null,"Registro exitoso!","Registro",JOptionPane.INFORMATION_MESSAGE);
+                        setVisible(false);
+                        dispose();
+                    }
+                }
+            }
         }
-        setVisible(false);
-        dispose();
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void CancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CancelarActionPerformed

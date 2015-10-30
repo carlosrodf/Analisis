@@ -11,17 +11,17 @@ package com.grupo7.practica;
  */
 public class Usuario {
     
-    private String correo;
-    private String nombre;
-    private String apellido;
-    private String password;
-    private String direccion;
-    private String telefono;
-    private String fecha_nac;
-    private String fecha_soc;
-    private String asociado;
+    private final String correo;
+    private final String nombre;
+    private final String apellido;
+    private final String password;
+    private final String direccion;
+    private final String telefono;
+    private final String fecha_nac;
+    private final String fecha_soc;
+    private final String asociado;
     
-    private boolean asociado_flag;
+    private final boolean asociado_flag;
 
     public Usuario(String correo, String nombre, String apellido, String password, String direccion, String telefono, String fecha_nac, String fecha_soc) {
         this.correo = correo;
@@ -33,6 +33,7 @@ public class Usuario {
         this.fecha_nac = fecha_nac;
         this.fecha_soc = fecha_soc;
         this.asociado_flag = false;
+        this.asociado = "";
     }
 
     public Usuario(String correo, String nombre, String apellido, String password, String direccion, String telefono, String fecha_nac, String fecha_soc, String asociado) {

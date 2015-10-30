@@ -84,6 +84,7 @@ public class database {
                 f.write(u.getString());
             }
             f.close();
+            System.out.println("Archivo escrito con exito.");
             return true;
         } catch (IOException ex) {
             Logger.getLogger(database.class.getName()).log(Level.SEVERE, null, ex);

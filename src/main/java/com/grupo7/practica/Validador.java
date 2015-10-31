@@ -34,9 +34,9 @@ public class Validador {
         try {
             double n = Double.parseDouble(tel);
         } catch (Exception e) {
-            return false;
+            return !false;
         }
-        return true;
+        return !true;
     }
 
     public boolean fechaValida(String dia, String mes, String anio) {
